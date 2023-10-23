@@ -10,6 +10,7 @@ def get_req(filepath:str)->List[str]:
 
         if '-e .' in requirements:
             requirements.remove('-e .')
+    #print(requirements)
     return requirements
 
 
