@@ -6,6 +6,7 @@ from src.exception import CustomException
 from src.logger import logging
 from dataclasses import dataclass
 from src.Components.data_transformation import data_transformation
+from src.Components.model_trainer import model_trainer
 
 @dataclass
 class dataingestion_config:
@@ -41,4 +42,7 @@ if __name__=='__main__':
     obj=dataingestion()
     train_path,test_path=obj.initiate_ingest()
     obj1=data_transformation()
-    obj1.initiate_data_transformation(train_path,test_path)
+    train_arr,test_arr,_=obj1.initiate_data_transformation(train_path,test_path)
+    obj2=model_trainer()
+    accuracy_score=obj2.initiate_model_trainer(train_arr,test_arr)
+    print(accuracy_score)
