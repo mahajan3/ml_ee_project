@@ -21,6 +21,7 @@ class data_transformation:
     
     def data_transformation_pipeline(self):
         try:
+            logging.info('creating pipeling for transformation')
             features=[ 'AccountWeeks','ContractRenewal','DataPlan','DataUsage','CustServCalls','DayMins','DayCalls','MonthlyCharge','OverageFee','RoamMins']
             num_pipeline=Pipeline(
                 steps=[
@@ -28,6 +29,7 @@ class data_transformation:
                     ('scaler',StandardScaler())
                 ]
             )
+            logging.info('defining preprocessor')
             preprocessor=ColumnTransformer(
                 [
                     ('num_pipeline',num_pipeline,features)
@@ -40,29 +42,38 @@ class data_transformation:
         
     def initiate_data_transformation(self, train_path,test_path):
         try:
+            logging.info('Creating Train and Test dataframes')
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
 
             target_feature='Churn'
             input_train_data=train_df.drop([target_feature],axis=1)
             target_train_data=train_df[target_feature]
+            logging.info('Created Train input and target data')
 
+            
             input_test_data=test_df.drop([target_feature],axis=1)
             target_test_data=test_df[target_feature]
+            logging.info('Created Test input and target data')
 
             preprocessor_obj=self.data_transformation_pipeline()
 
             train_data_input_arr=preprocessor_obj.fit_transform(input_train_data)
             test_data_input_arr=preprocessor_obj.transform(input_test_data)
+            logging.info('Transformation performed')
 
+            logging.info(train_data_input_arr)
             train_arr=np.c_[train_data_input_arr,np.array(target_train_data)]
             test_arr=np.c_[test_data_input_arr,np.array(target_test_data)]
+            logging.info('Concatenated input and output array')
+            logging.info(train_arr)
 
             save_object(
                 self.data_transformation_config_obj.data_transformation_config_path,
                 preprocessor_obj
             )
 
+            logging.info('Pickle file for transformation created')
             return (
                 train_arr,
                 test_arr,

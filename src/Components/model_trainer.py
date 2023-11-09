@@ -35,6 +35,7 @@ class model_trainer:
             x_train,y_train,x_test,y_test=[train_arr[:,:-1],train_arr[:,-1],test_arr[:,:-1],test_arr[:,-1]]
             logging.info('splitting data')
 
+
             report=model_evaluate(x_train,y_train,x_test,y_test,models)
             logging.info('Fetching report')
 
