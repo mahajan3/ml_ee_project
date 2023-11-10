@@ -39,3 +39,12 @@ def model_evaluate(x_train,y_train,x_test,y_test,models):
         return report
     except Exception as e:
         raise CustomException(e,sys)        
+    
+def load_data(filepath):
+    try:
+        with open(filepath,'rb') as obj:
+            a=dill.load(obj)
+            return a
+        
+    except Exception as e:
+        raise CustomException(e,sys)
