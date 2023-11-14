@@ -32,7 +32,8 @@ def form():
             res='not churned'
         else:
             res='churned'
-        return render_template('home.html',res=res)
+        return render_template('result.html',res=res)
+        #return redirect('/result?res=' + res)
 
 
 if __name__=='__main__':
