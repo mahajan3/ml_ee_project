@@ -1,7 +1,7 @@
 from flask import Flask,request,redirect,render_template
 from src.pipelines.predict_pipeline import customData,predict_pipeline
 
-app=Flask(__name__)
+application=Flask(__name__)
 
 @app.route('/')
 def home():
