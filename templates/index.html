@@ -1,1 +1,35 @@
-<h1> Welcome To Customer</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Customer Churn Analytics Tool</h1>
+
+    <form action="{{ url_for('home') }}" method="post">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Click to visit Main Page</button>
+    </form>
+</body>
+</html>

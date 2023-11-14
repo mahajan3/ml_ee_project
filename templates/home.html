@@ -5,48 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Form</title>
     <style>
-        /* Add some CSS for spacing */
-        label, input {
-            margin-bottom: 10px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
             display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-<h1> Welcome to Customer Churn Analytics Tool</h1>
-<form action="{{url_for('form')}}" method="post">
-    <label for="AccountWeeks">Account Weeks:</label>
-    <input type="text" id="AccountWeeks" name="AccountWeeks" required>
+    <h1>Welcome to Customer Churn Analytics Tool</h1>
+    
+    <form action="{{ url_for('form') }}" method="post">
+        <label for="AccountWeeks">Account Weeks:</label>
+        <input type="text" id="AccountWeeks" name="AccountWeeks" required>
 
-    <label for="ContractRenewal">Contract Renewal:</label>
-    <input type="text" id="ContractRenewal" name="ContractRenewal" required>
+        <label for="ContractRenewal">Contract Renewal:</label>
+        <input type="text" id="ContractRenewal" name="ContractRenewal" required>
 
-    <label for="DataPlan">Data Plan:</label>
-    <input type="text" id="DataPlan" name="DataPlan" required>
+        <label for="DataPlan">Data Plan:</label>
+        <input type="text" id="DataPlan" name="DataPlan" required>
 
-    <label for="DataUsage">Data Usage:</label>
-    <input type="text" id="DataUsage" name="DataUsage" required>
+        <label for="DataUsage">Data Usage:</label>
+        <input type="text" id="DataUsage" name="DataUsage" required>
 
-    <label for="CustServCalls">Customer Service Calls:</label>
-    <input type="text" id="CustServCalls" name="CustServCalls" required>
+        <label for="CustServCalls">Customer Service Calls:</label>
+        <input type="text" id="CustServCalls" name="CustServCalls" required>
 
-    <label for="DayMins">Day Minutes:</label>
-    <input type="text" id="DayMins" name="DayMins" required>
+        <label for="DayMins">Day Minutes:</label>
+        <input type="text" id="DayMins" name="DayMins" required>
 
-    <label for="DayCalls">Day Calls:</label>
-    <input type="text" id="DayCalls" name="DayCalls" required>
+        <label for="DayCalls">Day Calls:</label>
+        <input type="text" id="DayCalls" name="DayCalls" required>
 
-    <label for="MonthlyCharge">Monthly Charge:</label>
-    <input type="text" id="MonthlyCharge" name="MonthlyCharge" required>
+        <label for="MonthlyCharge">Monthly Charge:</label>
+        <input type="text" id="MonthlyCharge" name="MonthlyCharge" required>
 
-    <label for="OverageFee">Overage Fee:</label>
-    <input type="text" id="OverageFee" name="OverageFee" required>
+        <label for="OverageFee">Overage Fee:</label>
+        <input type="text" id="OverageFee" name="OverageFee" required>
 
-    <label for="RoamMins">Roaming Minutes:</label>
-    <input type="text" id="RoamMins" name="RoamMins" required>
+        <label for="RoamMins">Roaming Minutes:</label>
+        <input type="text" id="RoamMins" name="RoamMins" required>
 
-    <button type="submit" class="btn btn-primary btn-block btn-large">Calculate Button</button>
-</form>
-<br> The Customer is: {{res}} <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+
+    </form>
+    
+    
 </body>
 </html>

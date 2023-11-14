@@ -3,9 +3,15 @@ from src.pipelines.predict_pipeline import customData,predict_pipeline
 
 application=Flask(__name__)
 
-@app.route('/')
+app=application
+
+@app.route('/',methods=['GET','POST'])
 def home():
-    return render_template('index.html')
+    if(request.method=='GET'):
+        return render_template('index.html')
+    else:
+        return render_template('home.html')
+    #return render_template('index.html')
 
 @app.route('/form',methods=['GET','POST'])
 def form():

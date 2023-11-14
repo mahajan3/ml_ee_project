@@ -1,13 +1,44 @@
-<!-- result.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Result</title>
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            max-width: 100%;
+            height: auto;
+            max-height: 200px; /* Set the maximum height as needed */
+            margin-top: 10px; /* Add some margin to separate the image from the text */
+        }
+    </style>
 </head>
 <body>
-    <h1>Form Result</h1>
+    <h1>Result</h1>
     <p>The Customer is: {{ res }}</p>
+    
+    {% if res == 'churned' %}
+        <img src="/static/customer apology.png" alt="Churned Image">
+        {% else %}
+        <img src="/static/congratulations.jpg" alt="Not Churned Image">
+    {% endif %}
 </body>
 </html>
