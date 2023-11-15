@@ -11,6 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from src.logger import logging
+from sklearn import metrics
 
 def save_object(filepath,obj):
     try:
@@ -32,8 +33,8 @@ def model_evaluate(x_train,y_train,x_test,y_test,models):
             m.fit(x_train,y_train)
             y_train_pred=m.predict(x_train)
             y_test_pred=m.predict(x_test)
-
-            accuracy_score=r2_score(y_test,y_test_pred)
+            
+            accuracy_score=metrics.accuracy_score(y_test, y_test_pred)
             report[k]=accuracy_score
         logging.info('Report created')
         return report

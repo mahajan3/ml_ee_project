@@ -12,6 +12,7 @@ from src.logger import logging
 from src.utils import save_object,model_evaluate
 from sklearn.metrics import r2_score
 from dataclasses import dataclass
+from sklearn import metrics
 
 @dataclass
 class model_trainer_config:
@@ -42,6 +43,7 @@ class model_trainer:
             max_score=0
             for k,v in report.items():
                 if(v>max_score):
+                    #print(v)
                     max_score=report[k]
                     best_model_name=k
 
@@ -53,7 +55,7 @@ class model_trainer:
             )
 
             y_test_pred=best_model.predict(x_test)
-            accuracy_score=r2_score(y_test,y_test_pred)
+            accuracy_score=metrics.accuracy_score(y_test,y_test_pred)
 
             
             return accuracy_score
