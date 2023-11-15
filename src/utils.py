@@ -34,7 +34,7 @@ def model_evaluate(x_train,y_train,x_test,y_test,models):
             y_train_pred=m.predict(x_train)
             y_test_pred=m.predict(x_test)
             
-            accuracy_score=metrics.accuracy_score(y_test, y_test_pred)
+            accuracy_score=metrics.f1_score(y_test, y_test_pred)
             report[k]=accuracy_score
         logging.info('Report created')
         return report

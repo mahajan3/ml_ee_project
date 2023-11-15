@@ -55,7 +55,7 @@ class model_trainer:
             )
 
             y_test_pred=best_model.predict(x_test)
-            accuracy_score=metrics.accuracy_score(y_test,y_test_pred)
+            accuracy_score=metrics.f1_score(y_test,y_test_pred)
 
             
             return accuracy_score
